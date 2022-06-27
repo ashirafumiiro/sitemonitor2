@@ -1,0 +1,37 @@
+<tr>
+    <td>DSE Status</td>
+    <td>{% if not status_info %} n/a {% else %} {{ status_info.dse_status }}{% endif %}</td>
+    <td>{% if not status_info %} n/a {% else %} {{ status_info.time }}{% endif %}</td>
+</tr>
+<tr>
+    <td>DSE Mode</td>
+    <td>{% if not status_info %} n/a {% else %} {{ status_info.get_dse_status }}{% endif %}</td>
+    <td>{% if not status_info %} n/a {% else %} {{ status_info.time }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Local Storage</td>
+    <td>{% if not status_info %} n/a {% else %} {{ status_info.local_storage }}{% endif %}</td>
+    <td>{% if not status_info %} n/a {% else %} {{ status_info.time }}{% endif %}</td>
+</tr>
+<!--
+<tr>
+    <td>
+        <div class="led-box">
+            <div class="led-yellow"></div>
+            <p>Mains</p>
+        </div>
+    </td>
+    <td>
+        <div class="led-box">
+            <div class="led-red"></div>
+            <p>Generator</p>
+        </div>
+    </td>
+    <td>
+        <div class="led-box">
+            <div class="led-blue"></div>
+            <p>Backup</p>
+        </div>
+    </td>
+</tr>
+-->

@@ -1,0 +1,40 @@
+{% extends 'monitor/base_monitor.html' %}
+{% load static %}
+{% block title %} Generator Logs {% endblock %}
+{% block devices_current %}
+ <span class="sr-only">(current)</span>
+{% endblock %}
+
+{% block devices_active %}
+    active
+{% endblock %}
+
+{% block main_content %}
+    <h2>Generator Logs</h2>
+    <table class="table table-hover">
+         <thead>
+            <tr>
+                <th scope="col">Time</th>
+                <th scope="col">L1-NV</th>
+                <th scope="col">L2-NV</th>
+                <th scope="col">L3-NV</th>
+                <th scope="col">L1-L2V</th>
+                <th scope="col">L1-L3V</th>
+                <th scope="col">L2-L3V</th>
+                <th scope="col">L1-NA</th>
+                <th scope="col">L2-NA</th>
+                <th scope="col">L3-NA</th>
+                <th scope="col">Freq</th>
+                <th scope="col">RPM</th>
+                <th scope="col">Fuel</th>
+                <th scope="col">BattV</th>
+                <th scope="col">AltV</th>
+                <th scope="col">Eng Temp</th>
+                <th scope="col">Run Hours</th>
+            </tr>
+          </thead>
+          <tbody id="gen_table">
+
+          </tbody>
+    </table>
+{% endblock %}

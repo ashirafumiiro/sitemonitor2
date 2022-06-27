@@ -1,0 +1,46 @@
+{% extends 'monitor/base_monitor.html' %}
+{% block title %} Devices {% endblock %}
+{% block devices_current %}
+ <span class="sr-only">(current)</span>
+{% endblock %}
+
+{% block devices_active %}
+    active
+{% endblock %}
+
+{% block main_content %}
+    <h1>Devices</h1>
+    <table class="table table-hover table-sm" id="devices-table" >
+        <thead>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Serial No.</th>
+              <th scope="col">Site Name</th>
+              <th scope="col">Device IMEI</th>
+              <th scope="col">Reg Date</th>
+              <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for device in devices %}
+               <tr>
+                   <td scope="row">{{ forloop.counter }}</td>
+                   <td scope="row"><a href="{% url 'monitor:device' device.serial_number %}">{{ device.site_serial }}</a></td>
+                   <td scope="row">{{ device.site_name }}</td>
+                   <td scope="row">{{ device.device_imei }}</td>
+                   <td scope="row">{{ device.registration_date }}</td>
+                   <td scope="row">{{ device.check_status }}</td>
+               </tr>
+          {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock %}
+
+{% block additional_scripts %}
+    <script>
+        $(document).ready( function () {
+        $('#devices-table').DataTable();
+        } );
+    </script>
+{% endblock %}

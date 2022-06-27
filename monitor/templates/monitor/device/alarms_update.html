@@ -1,0 +1,45 @@
+            <tr>
+                 <td>Dg  Fail  To Start</td>
+                <td>{% if not alarms_log %} n/a {% else %} <div class="{{ alarms_log.dg_fail_to_start_status }}"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>DSE Emergency Stop</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="{{ alarms_log.dse_emergency_stop_status }}"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>Dg Low Fuel</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="{{ alarms_log.dg_low_fuel_status }}"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>Dg Battery Low</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="{{ alarms_log.dg_battery_low_status }}"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>Charging Alt Fail</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="{{ alarms_log.charging_alt_fail_status }}"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>AC Mains Fail</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="{{ mains_alarm }}"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>High Coolant Temp</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="{{ alarms_log.high_coolant_temp_status }}"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>Site On Batteries</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="dot-green"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>
+            <tr>
+                 <td>Mains On Load</td>
+                 <td>{% if not alarms_log %} n/a {% else %} <div class="dot"></div>{% endif %}</td>
+                 <td>{% if not alarms_log %} n/a {% else %} {{ alarms_log.time }}{% endif %}</td>
+            </tr>

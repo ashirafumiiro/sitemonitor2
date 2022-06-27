@@ -1,0 +1,52 @@
+<tr>
+    <td>Status</td>
+    <td><div class="{{ mains_state }}"></div></td>
+</tr>
+<tr>
+  <td>Time updated</td>
+  <td>{% if not mains_log %} n/a {% else %} {{ mains_log.time }}{% endif %}</td>
+</tr>
+<tr>
+  <td>L1-N Voltage</td>
+  <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l1nv }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L2-N Voltage</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l2nv }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L3-N Voltage</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l3nv }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L1-L2 Voltage</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l1l2v }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L1-L3 Voltage</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l1l3v }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L2-L3 Voltage</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l2l3v }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L1-N Current</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l1na }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L2-N Current</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l2na }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L3-N Current</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.l3na }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Frequency (Hz)</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.frequency }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Backup Voltage</td>
+    <td>{% if not mains_log %} n/a {% else %} {{ mains_log.backup }}{% endif %}</td>
+</tr>

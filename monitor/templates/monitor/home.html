@@ -1,0 +1,76 @@
+{% extends 'monitor/base_monitor.html' %}
+{% block title %} Home {% endblock %}
+{% block home_current %}
+ <span class="sr-only">(current)</span>
+{% endblock %}
+{% block home_active %}
+    active
+{% endblock %}
+{% block main_content %}
+    <h1>Remote Site Monitor</h1>
+    <section class="row text-center placeholders">
+        <section class="container-fluid">
+            <div class="row shadow">
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <h5>Registered sites</h5>
+                    <div class="panel panel-primary text-center no-boder bg-color-blue">
+                        <div class="panel-body">
+                            <i class="fa fa-desktop fa-5x"></i>
+                            <h3>{{ registered_devices }}</h3>
+                        </div>
+                        <div class="panel-footer back-footer-blue">Sites being monitored</div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-6">
+                    <h5>Logging devices</h5>
+                    <div class="alert alert-info text-center">
+                        <i class="fa fa-cloud-upload-alt fa-5x"></i>
+                        <h3>{{ online_devices }} </h3>
+                        <span>Devices logging to system from all sites</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Alarm Statuses</h5>
+                    <a href="#" class="btn btn-success">Okay</a>
+                    <a href="#" class="btn btn-default">Normal</a>
+                    <a href="#" class="btn btn-info">Optimal</a>
+                    <a href="#" class="btn btn-primary">Mild</a>
+                    <a href="#" class="btn btn-warning">Majour</a>
+                    <a href="#" class="btn btn-danger">Critical</a>
+
+                </div>
+            </div>
+        </section>
+    </section><!--///////////////////////////////////////////////////////////End of Test////////////////////////////////////////-->
+
+    <h2>Devices available </h2>
+    <div class="table-responsive">
+        <table class="table table-striped" id="data-table">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">Serial No.</th>
+                <th scope="col">Site Name</th>
+                <th scope="col">Device IMEI</th>
+                <th scope="col">Reg Date</th>
+            </tr>
+            </thead>
+            <tbody>
+               {% if devices %}
+                   {% for device in devices %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ device.site_serial }}</td>
+                            <td>{{ device.site_name }}</td>
+                            <td>{{ device.device_imei }}</td>
+                            <td>{{ device.registration_date }}</td>
+                        </tr>
+                   {% endfor %}
+
+                {% else  %}
+                   <p>No Devices found</p>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

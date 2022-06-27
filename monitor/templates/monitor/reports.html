@@ -1,0 +1,100 @@
+{% extends 'monitor/base_monitor.html' %}
+{% load static %}
+{% block title %} Reports {% endblock %}
+{% block reports_current %}
+ <span class="sr-only">(current)</span>
+{% endblock %}
+
+{% block reports_active %}
+    active
+{% endblock %}
+
+{% block main_content %}
+    <link href="{% static 'monitor/assets/jquery-ui/jquery-ui.min.css' %}" rel="stylesheet">
+    <h1>Report Info</h1>
+    <h2>View records based on a given timeline</h2>
+    <h3>Date</h3>
+    <div id="datepicker-div">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="datepicker">From:</label>
+                <input type="text" class="form-control" id="datepicker" placeholder="Pick Date">
+            </div>
+            <div class="form-group">
+                <label for="datepicker2">To:</label>
+                <input type="text" class="form-control" id="datepicker2" placeholder="Pick Date">
+            </div>
+            <button class="btn btn-default" id="submit-date">Aquire Data</button>
+        </form>
+    </div>
+    <h3>Time (24 hrs)</h3>
+    <div id="time-picker-div">
+        <form class="form-inline">
+            <div class="form-group">
+                <label for="time-picker1">From:</label>
+                <input type="text" class="form-control" id="time-picker1" name="time1" placeholder="Select Time" required>
+            </div>
+            <div class="form-group">
+                <label for="time-picker2">To:</label>
+                <input type="text" class="form-control" id="time-picker2" name="time2" placeholder="Select Time" required>
+            </div>
+            <button class="btn btn-default" id="submit-time">Aquire Data</button>
+        </form>
+    </div>
+    <div id="myDiv"></div>
+    <script>
+    </script>
+{% endblock %}
+
+{% block additional_scripts %}
+    <link href="{% static 'monitor/assets/jquery.timepicker.min.css' %}" rel="stylesheet"/>
+    <script src="{% static 'monitor/assets/jquery-ui/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'monitor/assets/jquery.timepicker.min.js' %}"></script>
+    <script>
+        $(function () {
+            $( "#datepicker" ).datepicker();
+            $( "#datepicker2" ).datepicker();
+
+            $('#time-picker1').timepicker({});
+            $('#time-picker2').timepicker({});
+
+            $('#submit-time').on('click', function (event) {
+                event.preventDefault();
+                alert("clicked");
+            });
+            $('#submit-date').on('click', function (event) {
+                event.preventDefault();
+                let from_date = $('#datepicker').val();
+                let to_date = $('#datepicker2').val();
+                $.ajax({
+                    dataType: 'json',
+                    type: 'GET',
+                    url: 'reports/get_report',
+                    cache: false,
+                    data: {date_from:from_date, date_to:to_date},
+                    success: function (result) {
+                        alert(JSON.stringify(result));
+                    },
+                    error: function (jq,status,message) {
+                        alert(message);
+                    }
+                });
+            });
+
+            var trace1 = {
+            x: [1, 2, 3, 4],
+            y: [10, 15, 13, 17],
+            type: 'scatter',
+            };
+
+            var trace2 = {
+              x: [1, 2, 3, 4],
+              y: [16, 5, 11, 9],
+              type: 'scatter'
+            };
+
+            var data = [trace1, trace2];
+            Plotly.newPlot('myDiv', data, {}, {showSendToCloud: true});
+        })
+    </script>
+{% endblock %}

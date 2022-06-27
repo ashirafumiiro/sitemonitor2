@@ -1,0 +1,68 @@
+<tr>
+    <td>Status</td>
+    <td><div class="{{ gen_state }}"></div></td>
+</tr>
+<tr>
+  <td>Time updated</td>
+  <td>{% if not gen_log %} n/a {% else %} {{ gen_log.time }}{% endif %}</td>
+</tr>
+<tr>
+  <td>L1-N Voltage</td>
+  <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l1nv }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L2-N Voltage</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l2nv }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L3-N Voltage</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l3nv }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L1-L2 Voltage</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l1l2v }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L1-L3 Voltage</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l1l3v }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L2-L3 Voltage</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l2l3v }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L1-N Current</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l1na }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L2-N Current</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l2na }}{% endif %}</td>
+</tr>
+<tr>
+    <td>L3-N Current</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.l3na }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Frequency (Hz)</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.frequency }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Generator Run Hours</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.run_hours }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Generator RPM</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.rpm }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Battery Voltage</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.battery_voltage }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Alternator Voltage</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.alternator_voltage }}{% endif %}</td>
+</tr>
+<tr>
+    <td>Engine Temperature</td>
+    <td>{% if not gen_log %} n/a {% else %} {{ gen_log.temperature }}{% endif %}</td>
+</tr>

@@ -1,0 +1,69 @@
+{% extends 'monitor/base_monitor.html' %}
+{% load static %}
+{% block title %} Mains Logs {% endblock %}
+{% block devices_current %}
+ <span class="sr-only">(current)</span>
+{% endblock %}
+
+{% block devices_active %}
+    active
+{% endblock %}
+
+{% block main_content %}
+    <h1>Mains Logs</h1>
+    <table class="table table-hover" id="mains-logs">
+         <thead>
+            <tr>
+                <th scope="col">Time</th>
+                <th scope="col">L1-N V</th>
+                <th scope="col">L2-N V</th>
+                <th scope="col">L3-N V</th>
+                <th scope="col">L1-L2 V</th>
+                <th scope="col">L1-L3 V</th>
+                <th scope="col">L2-L3 V</th>
+                <th scope="col">L1-N A</th>
+                <th scope="col">L2-N A</th>
+                <th scope="col">L3-N A</th>
+                <th scope="col">Frequency</th>
+                <th scope="col">Backup V</th>
+                <th scope="col">Buckup Load</th>
+            </tr>
+          </thead>
+          <tbody id="gen_table">
+          {% if mains_logs %}
+            {% for log in mains_logs %}
+              <tr>
+              `<td>{{ log.time }}</td>
+               <td>{{ log.l1nv }}</td>
+               <td>{{ log.l2nv }}</td>
+               <td>{{ log.l3nv }}</td>
+               <td>{{ log.l1l2v }}</td>
+               <td>{{ log.l1l3v }}</td>
+               <td>{{ log.l2l3v }}</td>
+               <td>{{ log.l1na}}</td>
+               <td>{{ log.l2na }}</td>
+               <td>{{ log.l3na }}</td>
+               <td>{{ log.frequency }}</td>
+               <td>{{ log.backup }} V</td>
+               <td>{{ log.backup_load }}</td>
+              </tr>
+              {% endfor %}
+
+          {% else %}
+          <p>No Logs Found</p>
+          {% endif %}
+
+          </tbody>
+    </table>
+
+{% endblock %}
+
+{% block additional_scripts %}
+    <script>
+        $(document).ready( function () {
+        $('#mains-logs').DataTable();
+
+
+        } );
+    </script>
+{% endblock %}
